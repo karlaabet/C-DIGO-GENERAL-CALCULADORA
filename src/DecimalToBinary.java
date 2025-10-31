@@ -163,6 +163,12 @@ public class DecimalToBinary {
                 System.out.print("Ingrese número hexadecimal: ");
                 String hexString = scanner.nextLine().toUpperCase();
 
+                //if que controla que no existan espacios entre numeros
+                if (hexString.contains(" ")) {
+                    System.out.println("El numero ingresado no debe tener espacios.");
+                    break;
+                }
+
                 if (!hexString.matches(HEX_REGEX)) {
                     System.out.println("Formato hexadecimal no válido.");
                     break;
