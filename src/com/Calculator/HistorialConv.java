@@ -1,5 +1,4 @@
 package com.Calculator;
-import javax.swing.*;
 import java.util.ArrayList;
 
 public class HistorialConv {
@@ -11,6 +10,7 @@ public class HistorialConv {
     void imprimirResultados(int count, int opcion) {
         int n = 1;
         String baseInput = "", baseReturn = "";
+        // Se determina la base de entrada y salida para el historial
         switch (opcion){
             case 1:
                 baseInput = " (Base 10 [Decimal])";
@@ -33,6 +33,7 @@ public class HistorialConv {
                 baseReturn = "";
                 break;
         }
+
         if (count == 1) {
             System.out.println("\t" + count + ". " + "\t" + numIngresados.get(count - 1) + baseInput + "\t\t\t\t" + "➟" + "\t\t\t\t" + numConvertidos.get(count - 1)  + baseReturn);
         }else if(count == 0){
@@ -40,7 +41,12 @@ public class HistorialConv {
         }else {
             System.out.println("\t" + count + ". " + "\t" + numIngresados.get(count-1) + baseInput + "\t\t\t\t" + "➟" + "\t\t\t\t"+ numConvertidos.get(count-1)  + baseReturn);
             n += 1;
-            imprimirResultados(count-1, opciones.get(opciones.size()-n));
+            // Se corrige la recursión para manejar el caso de opciones vacías o fuera de rango
+            if (opciones.size() >= n) {
+                imprimirResultados(count - 1, opciones.get(opciones.size() - n));
+            } else {
+                imprimirResultados(count - 1, 0); // Llama con default si no hay opción
+            }
         }
     }
 }
