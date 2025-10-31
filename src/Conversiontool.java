@@ -33,11 +33,11 @@ public class Conversiontool{
                 case 1:
                     // Decimal a Binario
                     System.out.print("Ingrese un número decimal: ");
-                    while (!scanner.hasNextInt()) {
+                    while (!scanner.hasNextLong()) { //cambio a long
                         System.out.print("Entrada no válida. Ingrese un número entero: ");
                         scanner.next();
                     }
-                    int numeroDecimal = scanner.nextInt();
+                    long numeroDecimal = scanner.nextLong();
                     try {
                         String resultadoBinario = DecimalToBinary.convertirDecimalABinario(numeroDecimal);
                         historial.numIngresados.add(String.valueOf(numeroDecimal));
@@ -51,11 +51,11 @@ public class Conversiontool{
                 case 2:
                     // Decimal a Hexadecimal
                     System.out.print("Ingrese un número decimal: ");
-                    while (!scanner.hasNextInt()) {
+                    while (!scanner.hasNextLong()) {
                         System.out.print("Entrada no válida. Ingrese un número entero: ");
                         scanner.next();
                     }
-                    int numeroHex = scanner.nextInt();
+                    long numeroHex = scanner.nextLong(); //refactorizacion de long
                     try {
                         String resultadoHex = DecimalToBinary.decimalAHexRecursivo(numeroHex);
                         historial.numIngresados.add(String.valueOf(numeroHex));

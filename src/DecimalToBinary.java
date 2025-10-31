@@ -11,19 +11,19 @@ public class DecimalToBinary {
     }
 
     // ========== CONVERSIÓN DECIMAL A BINARIO ==========
-    public static String convertirDecimalABinario(int decimal) {
+    public static String convertirDecimalABinario(long decimal) {
         validarNumeroPositivo(decimal);
         return convertirManual(decimal);
     }
 
-    private static String convertirManual(int decimal) {
+    private static String convertirManual(long decimal) {
         if (decimal == 0) {
             return "0";
         }
 
         StringBuilder binario = new StringBuilder();
         while (decimal > 0) {
-            int residuo = decimal % 2;
+            long residuo = decimal % 2;
             binario.insert(0, residuo);
             decimal /= 2;
         }
@@ -33,7 +33,7 @@ public class DecimalToBinary {
     // ========== CONVERSIÓN DECIMAL A HEXADECIMAL ==========
 
     // Método 1: Conversión recursiva (más elegante)
-    public static String decimalAHexRecursivo(int decimal) {
+    public static String decimalAHexRecursivo(long decimal) {
         validarNumeroPositivo(decimal);
         if (decimal == 0) {
             return "0";
@@ -41,11 +41,11 @@ public class DecimalToBinary {
         return divisionRecursiva(decimal);
     }
 
-    private static String divisionRecursiva(int numero) {
+    private static String divisionRecursiva(long numero) {
         if (numero == 0) {
             return "";
         } else {
-            int resto = numero % 16;
+            int resto = (int) (numero % 16);
             String digitoHexadecimal;
             if (resto < 10) {
                 digitoHexadecimal = String.valueOf(resto);
@@ -58,17 +58,17 @@ public class DecimalToBinary {
     }
 
     // Método 2: Conversión iterativa (alternativa)
-    public static String decimalAHexIterativo(int decimal) {
+    public static String decimalAHexIterativo(long decimal) {
         validarNumeroPositivo(decimal);
         if (decimal == 0) {
             return "0";
         }
 
         StringBuilder hexadecimal = new StringBuilder();
-        int numero = decimal;
+        long numero = decimal;
 
         while (numero > 0) {
-            int resto = numero % 16;
+            int resto = (int) (numero % 16);
             char digitoHex;
             if (resto < 10) {
                 digitoHex = (char) ('0' + resto);
@@ -90,7 +90,7 @@ public class DecimalToBinary {
         String parteFraccionaria = (partes.length > 1) ? partes[1] : "";
 
         // Convertir parte entera
-        int entero = Integer.parseInt(parteEntera, 2);
+        long entero = Long.parseLong(parteEntera, 2);
 
         // Convertir parte fraccionaria
         double fraccion = 0;
@@ -127,7 +127,7 @@ public class DecimalToBinary {
     }
 
     // ========== MÉTODOS AUXILIARES ==========
-    private static void validarNumeroPositivo(int numero) {
+    private static void validarNumeroPositivo(long numero) {
         if (numero < 0) {
             throw new IllegalArgumentException("El número no puede ser negativo.");
         }
@@ -148,7 +148,7 @@ public class DecimalToBinary {
         switch (opcion) {
             case 1:
                 System.out.print("Ingrese número decimal: ");
-                int decimal = scanner.nextInt();
+                long decimal = scanner.nextLong();
                 try {
                     String hexRecursivo = decimalAHexRecursivo(decimal);
                     String hexIterativo = decimalAHexIterativo(decimal);
