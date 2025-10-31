@@ -25,7 +25,7 @@ public class Conversiontool{
             // Validar opción del menú
             while (!scanner.hasNextInt()) {
                 System.out.print("Por favor ingrese un número válido: ");
-                scanner.next();
+                scanner.next().trim();
             }
             opcion = scanner.nextInt();
             historial.opciones.add(opcion);
@@ -35,7 +35,7 @@ public class Conversiontool{
                     System.out.print("Ingrese un número decimal: ");
                     while (!scanner.hasNextLong()) { //cambio a long
                         System.out.print("Entrada no válida. Ingrese un número entero: ");
-                        scanner.next();
+                        scanner.next().trim();
                     }
                     long numeroDecimal = scanner.nextLong();
                     try {
@@ -70,7 +70,7 @@ public class Conversiontool{
                     // Binario a Decimal
                     System.out.print("Ingrese un número binario: ");
                     scanner.nextLine(); // Limpiar buffer
-                    String binario = scanner.nextLine();
+                    String binario = scanner.nextLine().trim();
                     try {
                         double resultadoDecimal = DecimalToBinary.binarioADecimal(binario);
                         historial.numIngresados.add(binario);
@@ -85,7 +85,7 @@ public class Conversiontool{
                     // Hexadecimal a Decimal
                     System.out.print("Ingrese un número hexadecimal: ");
                     scanner.nextLine(); // Limpiar buffer
-                    String hexadecimal = scanner.nextLine().toUpperCase();
+                    String hexadecimal = scanner.nextLine().toUpperCase().trim();
                     try {
                         double resultadoHexADecimal = DecimalToBinary.hexFlotanteADecimal(hexadecimal);
                         historial.numIngresados.add(hexadecimal);
