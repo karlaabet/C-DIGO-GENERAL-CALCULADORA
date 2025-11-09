@@ -13,7 +13,7 @@ Sus funcionalidades son:
 Su entorno es IntelliJ Idea en una versión de JDK 25
 Cómo ejecutar el proyecto
 1. Clona el repositorio:
-git clone https://github.com/tuusuario/calculadora-conversion.git
+git clone https://github.com/karlaabet/C-DIGO-GENERAL-CALCULADORA.git
 2. Abre el proyecto en IntelliJ IDEA (o cualquier otro IDE compatible con Java).
 3. Compila y ejecuta el archivo principal:
 javac Conversiontool.java
